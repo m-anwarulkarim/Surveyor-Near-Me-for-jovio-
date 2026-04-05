@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surveyor Near Me</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1e3192",
+              secondary: "#21a8f3",
+              dark: "#07132c",
+              lightGray: "#f5f7fb",
+            },
+            boxShadow: {
+              soft: "0 20px 45px rgba(0,0,0,0.12)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+      }
+
+      .hero-overlay {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.55));
+      }
+
+      .top-shape-left {
+        clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
+      }
+
+      .top-shape-right {
+        clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      .section-pattern {
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.08) 1px,
+          transparent 1px
+        );
+        background-size: 20px 20px;
+      }
+
+      .underline-accent::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 90px;
+        height: 5px;
+        border-radius: 999px;
+        background: #21a8f3;
+      }
+
+      .underline-accent-center::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -10px;
+        width: 90px;
+        height: 5px;
+        border-radius: 999px;
+        background: #21a8f3;
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-slate-800">
+    <div class="bg-[#efefef]">
+      <div class="mx-auto max-w-[1600px]">
+        <div
+          class="flex min-h-[40px] items-center justify-between bg-secondary text-white"
+        >
+          <div class="flex items-center pl-3">
+            <a
+              href="#"
+              class="grid h-10 w-10 place-items-center border-r border-white/20 transition hover:bg-white/10"
+            >
+              <i class="fa-brands fa-facebook-f text-sm"></i>
+            </a>
+            <a
+              href="#"
+              class="grid h-10 w-10 place-items-center border-r border-white/20 transition hover:bg-white/10"
+            >
+              <i class="fa-brands fa-twitter text-sm"></i>
+            </a>
+            <a
+              href="#"
+              class="grid h-10 w-10 place-items-center border-r border-white/20 transition hover:bg-white/10"
+            >
+              <i class="fa-brands fa-linkedin-in text-sm"></i>
+            </a>
+            <a
+              href="#"
+              class="grid h-10 w-10 place-items-center border-r border-white/20 transition hover:bg-white/10"
+            >
+              <i class="fa-regular fa-envelope text-sm"></i>
+            </a>
+          </div>
+
+          <div
+            class="hidden items-center gap-6 px-4 text-[11px] font-semibold md:flex lg:gap-8 lg:px-6"
+          >
+            <a
+              href="mailto:anwarulkarim13@gmail.com"
+              class="whitespace-nowrap transition hover:text-white/85"
+            >
+              <i class="fa-regular fa-envelope mr-2 text-[10px]"></i
+              >info@surveyornearme.co.uk
+            </a>
+            <span class="whitespace-nowrap">
+              <i class="fa-solid fa-location-dot mr-2 text-[10px]"></i>Unit 107,
+              Edgware Road, London, NW2 6GY
+            </span>
+            <a
+              href="tel:+8801300000000"
+              class="whitespace-nowrap transition hover:text-white/85"
+            >
+              <i class="fa-solid fa-phone mr-2 text-[10px]"></i>020 3488 5826
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="relative z-50 bg-white shadow-sm">
+      <div class="mx-auto max-w-[1600px]">
+        <div class="flex min-h-[82px] items-stretch">
+          <div
+            class="relative flex w-[330px] shrink-0 items-center bg-primary px-4 text-white sm:px-5 lg:w-[390px]"
+          >
+            <div
+              class="absolute right-[-74px] top-0 h-full w-[150px] bg-white"
+              style="clip-path: polygon(42% 0, 100% 0, 58% 100%, 0 100%)"
+            ></div>
+            <a
+              href="#home"
+              class="relative z-10 text-[18px] font-extrabold tracking-wide sm:text-[20px] lg:text-[22px]"
+            >
+              Surveyor Near Me
+            </a>
+          </div>
+
+          <div class="flex flex-1 items-center justify-between bg-white">
+            <nav
+              class="hidden items-center gap-8 px-8 text-[13px] font-bold text-slate-600 lg:flex xl:gap-10 xl:px-12"
+            >
+              <a
+                href="#home"
+                class="text-secondary transition hover:text-primary"
+                >Home</a
+              >
+              <a href="#services" class="transition hover:text-secondary"
+                >Our Services</a
+              >
+              <a href="#why-us" class="transition hover:text-secondary"
+                >Why Choose Us?</a
+              >
+              <a href="#contact" class="transition hover:text-secondary"
+                >Contact Us</a
+              >
+            </nav>
+
+            <div
+              class="relative hidden h-full w-[320px] shrink-0 items-center justify-end bg-primary pr-4 md:flex lg:w-[360px] lg:pr-5"
+            >
+              <div
+                class="absolute left-[-74px] top-0 h-full w-[150px] bg-white"
+                style="clip-path: polygon(0 0, 58% 0, 100% 100%, 42% 100%)"
+              ></div>
+              <a
+                href="#contact"
+                class="relative z-10 inline-flex min-h-[46px] items-center justify-center rounded-sm bg-secondary px-7 text-[13px] font-extrabold text-white transition hover:bg-sky-500 lg:px-9"
+              >
+                Get Your Survey Today
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section
+      id="home"
+      class="relative overflow-hidden"
+      style="
+        background: url(&quot;https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80&quot;)
+          center/cover no-repeat;
+      "
+    >
+      <div class="hero-overlay absolute inset-0"></div>
+      <div
+        class="relative mx-auto flex min-h-[760px] max-w-7xl items-center px-4 py-24 text-center text-white lg:px-6"
+      >
+        <div class="mx-auto max-w-4xl">
+          <span
+            class="inline-block rounded-sm bg-primary/80 px-4 py-2 text-sm font-bold tracking-wide text-white"
+          >
+            RICS-Certified Surveyors You Can Trust
+          </span>
+
+          <h1
+            class="mt-8 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-7xl"
+          >
+            Professional Surveyor Services <br class="hidden md:block" />
+            Near You
+          </h1>
+
+          <p
+            class="mx-auto mt-8 max-w-3xl text-sm leading-7 text-slate-100 sm:text-base"
+          >
+            Whether it comes to buying, selling, or valuing a property,
+            accuracy, reliability, and expertise are essential. Our team of
+            RICS-certified surveyors delivers comprehensive property surveys and
+            valuations tailored to your needs.
+          </p>
+
+          <div class="mt-10">
+            <a
+              href="#contact"
+              class="inline-flex min-h-[56px] items-center justify-center rounded-sm bg-secondary px-10 text-base font-extrabold text-white transition hover:bg-sky-500"
+            >
+              Get Your Survey Today
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="why-us"
+      class="relative overflow-hidden bg-[#f7f7fa] py-24 lg:py-28"
+    >
+      <div class="pointer-events-none absolute inset-0">
+        <svg
+          class="absolute left-0 top-0 h-full w-[34%] opacity-80"
+          viewBox="0 0 520 760"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <g stroke="#dfe3eb" stroke-width="2.2" stroke-linecap="round">
+            <path d="M18 230H170" />
+            <path d="M18 278H116" />
+            <path d="M18 326H84" />
+            <path d="M72 118V394" />
+            <path d="M134 82V346" />
+            <path d="M196 46V306" />
+            <path d="M72 118L134 118" />
+            <path d="M134 82L196 82" />
+            <path d="M72 186L134 186" />
+            <path d="M134 150L196 150" />
+            <path d="M72 254L134 254" />
+            <path d="M134 218L196 218" />
+            <path d="M72 322L134 322" />
+            <path d="M134 286L196 286" />
+            <path d="M196 46L288 138" />
+            <path d="M196 150L278 232" />
+            <path d="M196 286L258 348" />
+            <circle cx="72" cy="230" r="7" fill="#edf1f6" />
+            <circle cx="72" cy="278" r="7" fill="#edf1f6" />
+            <circle cx="72" cy="326" r="7" fill="#edf1f6" />
+            <circle cx="134" cy="118" r="7" fill="#edf1f6" />
+            <circle cx="134" cy="186" r="7" fill="#edf1f6" />
+            <circle cx="134" cy="254" r="7" fill="#edf1f6" />
+            <circle cx="196" cy="82" r="7" fill="#edf1f6" />
+            <circle cx="196" cy="150" r="7" fill="#edf1f6" />
+            <circle cx="196" cy="218" r="7" fill="#edf1f6" />
+            <circle cx="196" cy="286" r="7" fill="#edf1f6" />
+          </g>
+        </svg>
+
+        <svg
+          class="absolute bottom-0 right-0 h-full w-[31%] opacity-70"
+          viewBox="0 0 500 760"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <g stroke="#e2e5ec" stroke-width="2" stroke-linecap="round">
+            <path d="M488 524H350" />
+            <path d="M488 572H392" />
+            <path d="M488 620H434" />
+            <path d="M430 378V670" />
+            <path d="M372 416V708" />
+            <path d="M314 454V744" />
+            <path d="M430 444H372" />
+            <path d="M372 482H314" />
+            <path d="M430 512H372" />
+            <path d="M372 550H314" />
+            <path d="M430 580H372" />
+            <path d="M372 618H314" />
+            <path d="M430 648H372" />
+            <path d="M372 686H314" />
+            <circle cx="430" cy="524" r="7" fill="#eef2f7" />
+            <circle cx="430" cy="572" r="7" fill="#eef2f7" />
+            <circle cx="430" cy="620" r="7" fill="#eef2f7" />
+            <circle cx="372" cy="444" r="7" fill="#eef2f7" />
+            <circle cx="372" cy="512" r="7" fill="#eef2f7" />
+            <circle cx="372" cy="580" r="7" fill="#eef2f7" />
+            <circle cx="372" cy="648" r="7" fill="#eef2f7" />
+            <circle cx="314" cy="482" r="7" fill="#eef2f7" />
+            <circle cx="314" cy="550" r="7" fill="#eef2f7" />
+            <circle cx="314" cy="618" r="7" fill="#eef2f7" />
+            <circle cx="314" cy="686" r="7" fill="#eef2f7" />
+          </g>
+        </svg>
+      </div>
+
+      <div
+        class="relative mx-auto grid max-w-[1500px] items-center gap-14 px-6 lg:grid-cols-[460px_minmax(0,1fr)] lg:gap-20 lg:px-12 xl:px-20"
+      >
+        <div class="flex justify-center lg:justify-start">
+          <div class="relative w-full max-w-[430px]">
+            <div
+              class="absolute left-[10%] top-[6%] h-[78%] w-[74%] rounded-full bg-white/45 blur-sm"
+            ></div>
+            <div
+              class="relative z-10 overflow-hidden"
+              style="
+                clip-path: path(
+                  &quot;M210 18C256 14 325 36 355 84C383 128 379 176 385 223C391 271 407 331 385 384C363 437 303 467 241 475C181 483 122 470 86 425C50 379 42 310 36 249C30 190 28 126 63 80C98 35 161 22 210 18Z&quot;
+                );
+              "
+            >
+              <img
+                src="./images.png"
+                alt="Residential property survey"
+                class="block h-auto w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-[860px]">
+          <p
+            class="text-[14px] font-extrabold tracking-[0.08em] text-secondary"
+          >
+            Why Choose Us?
+          </p>
+
+          <div class="mt-3">
+            <h2
+              class="text-[44px] font-extrabold leading-[1.06] text-primary sm:text-[56px] lg:text-[62px]"
+            >
+              Trusted Surveying <br />
+              Expertise
+            </h2>
+            <svg
+              class="mt-2 h-[18px] w-[150px]"
+              viewBox="0 0 150 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 14C32 7 59 6 85 8C107 10 124 15 146 12"
+                stroke="#21a8f3"
+                stroke-width="4.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <div
+            class="mt-6 max-w-[860px] space-y-2 text-[15px] leading-8 text-slate-600 lg:text-[16px]"
+          >
+            <p>
+              <span class="font-bold text-slate-700">RICS Certification:</span>
+              Our surveyors are fully accredited and follow the highest industry
+              standards.
+            </p>
+            <p>
+              <span class="font-bold text-slate-700">Local Expertise:</span>
+              Serving your area with detailed knowledge of the local property
+              market.
+            </p>
+            <p>
+              <span class="font-bold text-slate-700"
+                >Comprehensive Reports:</span
+              >
+              Clear, easy to understand reports with actionable insights.
+            </p>
+            <p>
+              <span class="font-bold text-slate-700">Trusted Advice:</span> We
+              guide you through every step, making complex property matters
+              simple.
+            </p>
+          </div>
+
+          <div class="mt-8 grid gap-x-6 gap-y-4 sm:grid-cols-2">
+            <div
+              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
+            >
+              <span
+                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
+                ><i class="fa-regular fa-circle-check text-[18px]"></i
+              ></span>
+              <span
+                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
+                >Level 3 Home Survey</span
+              >
+            </div>
+            <div
+              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
+            >
+              <span
+                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
+                ><i class="fa-regular fa-circle-check text-[18px]"></i
+              ></span>
+              <span
+                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
+                >Level 3 Home Survey</span
+              >
+            </div>
+            <div
+              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
+            >
+              <span
+                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
+                ><i class="fa-regular fa-circle-check text-[18px]"></i
+              ></span>
+              <span
+                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
+                >Defect Investigation</span
+              >
+            </div>
+            <div
+              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
+            >
+              <span
+                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
+                ><i class="fa-regular fa-circle-check text-[18px]"></i
+              ></span>
+              <span
+                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
+                >Market Valuation</span
+              >
+            </div>
+            <div
+              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
+            >
+              <span
+                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
+                ><i class="fa-regular fa-circle-check text-[18px]"></i
+              ></span>
+              <span
+                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
+                >Probate Valuation</span
+              >
+            </div>
+            <div
+              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
+            >
+              <span
+                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
+                ><i class="fa-regular fa-circle-check text-[18px]"></i
+              ></span>
+              <span
+                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
+                >Capital Gains Tax Valuation</span
+              >
+            </div>
+            <div
+              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
+            >
+              <span
+                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
+                ><i class="fa-regular fa-circle-check text-[18px]"></i
+              ></span>
+              <span
+                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
+                >Help To Buy Valuation</span
+              >
+            </div>
+            <div
+              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
+            >
+              <span
+                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
+                ><i class="fa-regular fa-circle-check text-[18px]"></i
+              ></span>
+              <span
+                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
+                >Shared Ownership Valuation</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="services"
+      class="section-pattern bg-primary py-20 text-white lg:py-28"
+    >
+      <div class="mx-auto max-w-7xl px-4 lg:px-6">
+        <div class="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+          <div>
+            <p
+              class="text-sm font-extrabold uppercase tracking-[0.22em] text-sky-300"
+            >
+              Our Services
+            </p>
+            <div class="mt-3 inline-block">
+              <h2 class="text-4xl font-extrabold leading-tight sm:text-5xl">
+                Comprehensive Surveying <br />
+                Solutions Tailored To Your <br />
+                Needs
+              </h2>
+              <svg
+                class="mt-2 h-4 w-28"
+                viewBox="0 0 120 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 13C24 7 46 6 67 8C84 9 98 14 116 11"
+                  stroke="#21a8f3"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <p class="max-w-2xl text-[15px] leading-7 text-slate-200">
+            We provide a full range of surveying services across the UK, from
+            detailed property surveys and valuations to expert advice for
+            buyers, homeowners, and businesses. Our goal is to deliver accurate
+            insights and clear reports, helping you make informed decisions with
+            confidence.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-5">
+          <div
+            class="service-card bg-white p-6 text-center text-slate-800 shadow-soft transition duration-300"
+          >
+            <h3 class="text-xl font-extrabold text-primary">
+              Shared Ownership Valuation
+            </h3>
+            <p class="mt-4 text-sm leading-7 text-slate-600">
+              Accurate valuations for shared ownership properties, helping you
+              make informed decisions.
+            </p>
+          </div>
+          <div
+            class="service-card bg-white p-6 text-center text-slate-800 shadow-soft transition duration-300"
+          >
+            <h3 class="text-xl font-extrabold text-primary">
+              Market Valuation
+            </h3>
+            <p class="mt-4 text-sm leading-7 text-slate-600">
+              Planning to buy, sell, or remortgage? Our market valuations
+              provide a professional estimate of your property's current market
+              value.
+            </p>
+          </div>
+          <div
+            class="service-card bg-white p-6 text-center text-slate-800 shadow-soft transition duration-300"
+          >
+            <h3 class="text-xl font-extrabold text-primary">
+              Probate Valuation
+            </h3>
+            <p class="mt-4 text-sm leading-7 text-slate-600">
+              When handling estate matters, probate valuations provide a
+              reliable and RICS compliant valuation to support legal
+              requirements.
+            </p>
+          </div>
+          <div
+            class="service-card bg-white p-6 text-center text-slate-800 shadow-soft transition duration-300"
+          >
+            <h3 class="text-xl font-extrabold text-primary">
+              Capital Gains Tax Valuation
+            </h3>
+            <p class="mt-4 text-sm leading-7 text-slate-600">
+              We offer certified valuations for capital gains tax purposes,
+              ensuring compliance and accurate reporting.
+            </p>
+          </div>
+          <div
+            class="service-card bg-white p-6 text-center text-slate-800 shadow-soft transition duration-300"
+          >
+            <h3 class="text-xl font-extrabold text-primary">
+              RICS Level 2 HomeBuyer Report
+            </h3>
+            <p class="mt-4 text-sm leading-7 text-slate-600">
+              Ideal for conventional properties in reasonable condition, our
+              HomeBuyer reports give a focused review of your property.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-lightGray py-20 lg:py-28">
+      <div class="mx-auto max-w-3xl px-4 text-center lg:px-6">
+        <p
+          class="text-sm font-extrabold uppercase tracking-[0.22em] text-secondary"
+        >
+          Contact Us
+        </p>
+        <div class="mt-3">
+          <h2
+            class="text-4xl font-extrabold leading-[1.08] text-primary sm:text-5xl"
+          >
+            Get Your Survey <br />
+            Today
+          </h2>
+          <div class="flex justify-center">
+            <svg
+              class="mt-2 h-4 w-28"
+              viewBox="0 0 120 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 13C24 7 46 6 67 8C84 9 98 14 116 11"
+                stroke="#21a8f3"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+        </div>
+        <p class="mx-auto mt-8 max-w-2xl text-[15px] leading-7 text-slate-600">
+          Whether you need a HomeBuyer Report, Building Survey, or a
+          professional valuation, our team is ready to help. Book your survey
+          now and benefit from the expertise and assurance of RICS-certified
+          surveyors.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-14 max-w-3xl px-4 lg:px-6">
+        <form
+          id="contactForm"
+          action="https://formsubmit.co/anwarulkarim13@gmail.com"
+          method="POST"
+          class="space-y-6"
+        >
+          <input type="hidden" name="_subject" value="New Survey Inquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="" />
+          <input type="hidden" name="_subject" value="New Survey Inquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <div>
+            <input
+              name="name"
+              type="text"
+              placeholder="Name"
+              required
+              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
+            />
+          </div>
+          <div>
+            <input
+              name="phone"
+              type="text"
+              placeholder="Number"
+              required
+              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
+            />
+          </div>
+          <div>
+            <input
+              name="email"
+              type="email"
+              placeholder="Your email"
+              required
+              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
+            />
+          </div>
+          <div>
+            <input
+              name="address"
+              type="text"
+              placeholder="Address"
+              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
+            />
+          </div>
+          <div>
+            <input
+              name="property_type"
+              type="text"
+              placeholder="Property Type"
+              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
+            />
+          </div>
+          <div>
+            <select
+              name="service"
+              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-600 outline-none focus:border-secondary focus:ring-0"
+            >
+              <option>RICS Level 2 HomeBuyer Report</option>
+              <option>RICS Level 3 Building Survey</option>
+              <option>Market Valuation</option>
+              <option>Probate Valuation</option>
+              <option>Shared Ownership Valuation</option>
+            </select>
+          </div>
+          <div>
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Message"
+              required
+              class="w-full resize-none border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
+            ></textarea>
+          </div>
+          <div class="pt-2 text-left">
+            <button
+              type="submit"
+              class="inline-flex min-h-[50px] items-center justify-center bg-secondary px-8 text-sm font-extrabold text-white transition hover:bg-sky-500"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+
+        <p
+          id="successMessage"
+          class="mt-4 hidden text-green-600 font-semibold text-sm"
+        >
+          ✅ Your message has been sent successfully!
+        </p>
+
+        <script>
+          const form = document.getElementById("contactForm");
+          const successMsg = document.getElementById("successMessage");
+
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+              method: "POST",
+              body: formData,
+            })
+              .then(() => {
+                successMsg.classList.remove("hidden");
+                form.reset();
+              })
+              .catch(() => {
+                alert("Something went wrong. Please try again.");
+              });
+          });
+        </script>
+      </div>
+    </section>
+
+    <footer class="bg-dark pt-16 text-white">
+      <div
+        class="mx-auto grid max-w-7xl gap-10 px-4 pb-12 md:grid-cols-2 lg:grid-cols-4 lg:px-6"
+      >
+        <div>
+          <h3 class="text-xl font-extrabold">About Us</h3>
+          <div class="mt-3 h-1 w-10 bg-secondary"></div>
+          <p class="mt-6 text-sm leading-7 text-slate-300">
+            When it comes to buying, selling, or valuing a property, accuracy,
+            reliability, and expertise are essential. Our team of RICS-certified
+            surveyors provides tailored surveying and valuation services.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-extrabold">Quick Links</h3>
+          <div class="mt-3 h-1 w-10 bg-secondary"></div>
+          <ul class="mt-6 space-y-4 text-sm text-slate-300">
+            <li>
+              <a href="#home" class="transition hover:text-secondary">Home</a>
+            </li>
+            <li>
+              <a href="#why-us" class="transition hover:text-secondary"
+                >Why Choose Us?</a
+              >
+            </li>
+            <li>
+              <a href="#services" class="transition hover:text-secondary"
+                >Our Services</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="transition hover:text-secondary"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-extrabold">Official Info</h3>
+          <div class="mt-3 h-1 w-10 bg-secondary"></div>
+          <ul class="mt-6 space-y-4 text-sm text-slate-300">
+            <li>
+              <i class="fa-solid fa-location-dot mr-3 text-secondary"></i>China
+              House, 401 Edgware Road, London, NW2 6GY
+            </li>
+            <li>
+              <i class="fa-solid fa-phone mr-3 text-secondary"></i>020 3490 5520
+            </li>
+            <li>
+              <span class="font-bold text-white">Open Hours:</span><br />
+              Mon - Sat: 9:00 am - 5:00 pm<br />
+              Sunday: CLOSED
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-extrabold">Newsletter</h3>
+          <div class="mt-3 h-1 w-10 bg-secondary"></div>
+          <p class="mt-6 text-sm leading-7 text-slate-300">
+            Subscribe to our newsletter to get the latest update and news.
+          </p>
+          <form
+            class="mt-5 flex overflow-hidden rounded-sm border border-slate-700 bg-[#0b1837]"
+          >
+            <input
+              type="email"
+              placeholder="Email"
+              class="w-full bg-transparent px-4 py-3 text-sm text-white outline-none placeholder:text-slate-400"
+            />
+            <button
+              type="submit"
+              class="bg-secondary px-5 text-white transition hover:bg-sky-500"
+            >
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div
+        class="border-t border-slate-800 py-5 text-center text-sm text-slate-400"
+      >
+        Copyright © 2025 Surveyor Near Me
+      </div>
+    </footer>
+  </body>
+</html>
