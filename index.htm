@@ -3,868 +3,1333 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Surveyor Near Me</title>
+    <title>IQSURV | RICS Regulated Property Surveyors</title>
+    <meta
+      name="description"
+      content="Professional property surveys, valuation reports, drone roof surveys, and structural design calculations from IQSURV, a RICS regulated firm."
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
+            fontFamily: { sans: ["Plus Jakarta Sans", "sans-serif"] },
             colors: {
-              primary: "#1e3192",
-              secondary: "#21a8f3",
-              dark: "#07132c",
-              lightGray: "#f5f7fb",
+              brand: {
+                50: "#eff6ff",
+                100: "#dbeafe",
+                500: "#1d9bf0",
+                600: "#0284c7",
+                700: "#0f3c8a",
+                800: "#0d2f6b",
+                900: "#071A3D",
+              },
             },
-            boxShadow: {
-              soft: "0 20px 45px rgba(0,0,0,0.12)",
-            },
+            boxShadow: { premium: "0 25px 60px -15px rgba(2, 20, 56, 0.15)" },
           },
         },
       };
     </script>
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-
     <style>
       html {
         scroll-behavior: smooth;
       }
-
-      body {
-        font-family: "Nunito", sans-serif;
+      .service-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid #f1f5f9;
       }
-
-      .hero-overlay {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.55));
-      }
-
-      .top-shape-left {
-        clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
-      }
-
-      .top-shape-right {
-        clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-      }
-
-      .section-pattern {
-        background-image: radial-gradient(
-          rgba(255, 255, 255, 0.08) 1px,
-          transparent 1px
-        );
-        background-size: 20px 20px;
-      }
-
-      .underline-accent::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -10px;
-        width: 90px;
-        height: 5px;
-        border-radius: 999px;
-        background: #21a8f3;
-      }
-
-      .underline-accent-center::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -10px;
-        width: 90px;
-        height: 5px;
-        border-radius: 999px;
-        background: #21a8f3;
-      }
-
       .service-card:hover {
         transform: translateY(-8px);
+        border-color: #1d9bf0;
+        box-shadow: 0 20px 40px rgba(29, 155, 240, 0.1);
+      }
+      .glass-header {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #071a3d 0%, #0d2f6b 100%);
+      }
+      .dot-pattern {
+        background-image: radial-gradient(#ffffff22 1px, transparent 1px);
+        background-size: 20px 20px;
       }
     </style>
   </head>
-  <body class="bg-white text-slate-800">
-    <div class="bg-[#efefef]">
-      <div class="mx-auto max-w-[1600px]">
-        <div
-          class="flex min-h-[40px] items-center justify-between bg-secondary text-white"
+  <body class="bg-white text-slate-900 overflow-x-hidden">
+    <header class="sticky top-0 z-50 glass-header">
+      <div
+        class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8"
+      >
+        <a href="#home" class="flex items-center gap-3">
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-900 text-xl font-black text-white shadow-lg"
+          >
+            IQ
+          </div>
+          <div>
+            <p class="text-2xl font-black tracking-tighter text-brand-900">
+              IQSURV
+            </p>
+            <p
+              class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-600"
+            >
+              RICS Regulated
+            </p>
+          </div>
+        </a>
+
+        <nav
+          class="hidden items-center gap-7 text-[13px] font-bold uppercase tracking-wider text-slate-600 lg:flex"
         >
-          <div class="flex items-center pl-3">
-            <a
-              href="#"
-              class="grid h-10 w-10 place-items-center border-r border-white/20 transition hover:bg-white/10"
-            >
-              <i class="fa-brands fa-facebook-f text-sm"></i>
-            </a>
-            <a
-              href="#"
-              class="grid h-10 w-10 place-items-center border-r border-white/20 transition hover:bg-white/10"
-            >
-              <i class="fa-brands fa-twitter text-sm"></i>
-            </a>
-            <a
-              href="#"
-              class="grid h-10 w-10 place-items-center border-r border-white/20 transition hover:bg-white/10"
-            >
-              <i class="fa-brands fa-linkedin-in text-sm"></i>
-            </a>
-            <a
-              href="#"
-              class="grid h-10 w-10 place-items-center border-r border-white/20 transition hover:bg-white/10"
-            >
-              <i class="fa-regular fa-envelope text-sm"></i>
-            </a>
-          </div>
-
-          <div
-            class="hidden items-center gap-6 px-4 text-[11px] font-semibold md:flex lg:gap-8 lg:px-6"
+          <a href="#home" class="hover:text-brand-600 transition">Home</a>
+          <a href="#why-us" class="hover:text-brand-600 transition">Why Us</a>
+          <a href="#services" class="hover:text-brand-600 transition"
+            >Services</a
           >
-            <a
-              href="mailto:anwarulkarim13@gmail.com"
-              class="whitespace-nowrap transition hover:text-white/85"
-            >
-              <i class="fa-regular fa-envelope mr-2 text-[10px]"></i
-              >info@surveyornearme.co.uk
-            </a>
-            <span class="whitespace-nowrap">
-              <i class="fa-solid fa-location-dot mr-2 text-[10px]"></i>Unit 107,
-              Edgware Road, London, NW2 6GY
-            </span>
-            <a
-              href="tel:+8801300000000"
-              class="whitespace-nowrap transition hover:text-white/85"
-            >
-              <i class="fa-solid fa-phone mr-2 text-[10px]"></i>020 3488 5826
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+          <a href="#contact" class="hover:text-brand-600 transition">Contact</a>
+        </nav>
 
-    <header class="relative z-50 bg-white shadow-sm">
-      <div class="mx-auto max-w-[1600px]">
-        <div class="flex min-h-[82px] items-stretch">
-          <div
-            class="relative flex w-[330px] shrink-0 items-center bg-primary px-4 text-white sm:px-5 lg:w-[390px]"
-          >
-            <div
-              class="absolute right-[-74px] top-0 h-full w-[150px] bg-white"
-              style="clip-path: polygon(42% 0, 100% 0, 58% 100%, 0 100%)"
-            ></div>
-            <a
-              href="#home"
-              class="relative z-10 text-[18px] font-extrabold tracking-wide sm:text-[20px] lg:text-[22px]"
-            >
-              Surveyor Near Me
-            </a>
-          </div>
-
-          <div class="flex flex-1 items-center justify-between bg-white">
-            <nav
-              class="hidden items-center gap-8 px-8 text-[13px] font-bold text-slate-600 lg:flex xl:gap-10 xl:px-12"
-            >
-              <a
-                href="#home"
-                class="text-secondary transition hover:text-primary"
-                >Home</a
-              >
-              <a href="#services" class="transition hover:text-secondary"
-                >Our Services</a
-              >
-              <a href="#why-us" class="transition hover:text-secondary"
-                >Why Choose Us?</a
-              >
-              <a href="#contact" class="transition hover:text-secondary"
-                >Contact Us</a
-              >
-            </nav>
-
-            <div
-              class="relative hidden h-full w-[320px] shrink-0 items-center justify-end bg-primary pr-4 md:flex lg:w-[360px] lg:pr-5"
-            >
-              <div
-                class="absolute left-[-74px] top-0 h-full w-[150px] bg-white"
-                style="clip-path: polygon(0 0, 58% 0, 100% 100%, 42% 100%)"
-              ></div>
-              <a
-                href="#contact"
-                class="relative z-10 inline-flex min-h-[46px] items-center justify-center rounded-sm bg-secondary px-7 text-[13px] font-extrabold text-white transition hover:bg-sky-500 lg:px-9"
-              >
-                Get Your Survey Today
-              </a>
-            </div>
-          </div>
-        </div>
+        <a
+          href="#contact"
+          class="inline-flex items-center justify-center rounded-full bg-brand-600 px-7 py-3 text-sm font-bold text-white shadow-xl shadow-brand-500/20 transition-all hover:bg-brand-700 hover:-translate-y-0.5 active:scale-95"
+        >
+          Get Your Survey Today
+        </a>
       </div>
     </header>
 
-    <section
-      id="home"
-      class="relative overflow-hidden"
-      style="
-        background: url(&quot;https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80&quot;)
-          center/cover no-repeat;
-      "
-    >
-      <div class="hero-overlay absolute inset-0"></div>
-      <div
-        class="relative mx-auto flex min-h-[760px] max-w-7xl items-center px-4 py-24 text-center text-white lg:px-6"
+    <main>
+      <section
+        id="home"
+        class="relative overflow-hidden hero-gradient pt-24 pb-36"
       >
-        <div class="mx-auto max-w-4xl">
-          <span
-            class="inline-block rounded-sm bg-primary/80 px-4 py-2 text-sm font-bold tracking-wide text-white"
-          >
-            RICS-Certified Surveyors You Can Trust
-          </span>
-
-          <h1
-            class="mt-8 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-7xl"
-          >
-            Professional Surveyor Services <br class="hidden md:block" />
-            Near You
-          </h1>
-
-          <p
-            class="mx-auto mt-8 max-w-3xl text-sm leading-7 text-slate-100 sm:text-base"
-          >
-            Whether it comes to buying, selling, or valuing a property,
-            accuracy, reliability, and expertise are essential. Our team of
-            RICS-certified surveyors delivers comprehensive property surveys and
-            valuations tailored to your needs.
-          </p>
-
-          <div class="mt-10">
-            <a
-              href="#contact"
-              class="inline-flex min-h-[56px] items-center justify-center rounded-sm bg-secondary px-10 text-base font-extrabold text-white transition hover:bg-sky-500"
-            >
-              Get Your Survey Today
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section
-      id="why-us"
-      class="relative overflow-hidden bg-[#f7f7fa] py-24 lg:py-28"
-    >
-      <div class="pointer-events-none absolute inset-0">
-        <svg
-          class="absolute left-0 top-0 h-full w-[34%] opacity-80"
-          viewBox="0 0 520 760"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <g stroke="#dfe3eb" stroke-width="2.2" stroke-linecap="round">
-            <path d="M18 230H170" />
-            <path d="M18 278H116" />
-            <path d="M18 326H84" />
-            <path d="M72 118V394" />
-            <path d="M134 82V346" />
-            <path d="M196 46V306" />
-            <path d="M72 118L134 118" />
-            <path d="M134 82L196 82" />
-            <path d="M72 186L134 186" />
-            <path d="M134 150L196 150" />
-            <path d="M72 254L134 254" />
-            <path d="M134 218L196 218" />
-            <path d="M72 322L134 322" />
-            <path d="M134 286L196 286" />
-            <path d="M196 46L288 138" />
-            <path d="M196 150L278 232" />
-            <path d="M196 286L258 348" />
-            <circle cx="72" cy="230" r="7" fill="#edf1f6" />
-            <circle cx="72" cy="278" r="7" fill="#edf1f6" />
-            <circle cx="72" cy="326" r="7" fill="#edf1f6" />
-            <circle cx="134" cy="118" r="7" fill="#edf1f6" />
-            <circle cx="134" cy="186" r="7" fill="#edf1f6" />
-            <circle cx="134" cy="254" r="7" fill="#edf1f6" />
-            <circle cx="196" cy="82" r="7" fill="#edf1f6" />
-            <circle cx="196" cy="150" r="7" fill="#edf1f6" />
-            <circle cx="196" cy="218" r="7" fill="#edf1f6" />
-            <circle cx="196" cy="286" r="7" fill="#edf1f6" />
-          </g>
-        </svg>
-
-        <svg
-          class="absolute bottom-0 right-0 h-full w-[31%] opacity-70"
-          viewBox="0 0 500 760"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <g stroke="#e2e5ec" stroke-width="2" stroke-linecap="round">
-            <path d="M488 524H350" />
-            <path d="M488 572H392" />
-            <path d="M488 620H434" />
-            <path d="M430 378V670" />
-            <path d="M372 416V708" />
-            <path d="M314 454V744" />
-            <path d="M430 444H372" />
-            <path d="M372 482H314" />
-            <path d="M430 512H372" />
-            <path d="M372 550H314" />
-            <path d="M430 580H372" />
-            <path d="M372 618H314" />
-            <path d="M430 648H372" />
-            <path d="M372 686H314" />
-            <circle cx="430" cy="524" r="7" fill="#eef2f7" />
-            <circle cx="430" cy="572" r="7" fill="#eef2f7" />
-            <circle cx="430" cy="620" r="7" fill="#eef2f7" />
-            <circle cx="372" cy="444" r="7" fill="#eef2f7" />
-            <circle cx="372" cy="512" r="7" fill="#eef2f7" />
-            <circle cx="372" cy="580" r="7" fill="#eef2f7" />
-            <circle cx="372" cy="648" r="7" fill="#eef2f7" />
-            <circle cx="314" cy="482" r="7" fill="#eef2f7" />
-            <circle cx="314" cy="550" r="7" fill="#eef2f7" />
-            <circle cx="314" cy="618" r="7" fill="#eef2f7" />
-            <circle cx="314" cy="686" r="7" fill="#eef2f7" />
-          </g>
-        </svg>
-      </div>
-
-      <div
-        class="relative mx-auto grid max-w-[1500px] items-center gap-14 px-6 lg:grid-cols-[460px_minmax(0,1fr)] lg:gap-20 lg:px-12 xl:px-20"
-      >
-        <div class="flex justify-center lg:justify-start">
-          <div class="relative w-full max-w-[430px]">
-            <div
-              class="absolute left-[10%] top-[6%] h-[78%] w-[74%] rounded-full bg-white/45 blur-sm"
-            ></div>
-            <div
-              class="relative z-10 overflow-hidden"
-              style="
-                clip-path: path(
-                  &quot;M210 18C256 14 325 36 355 84C383 128 379 176 385 223C391 271 407 331 385 384C363 437 303 467 241 475C181 483 122 470 86 425C50 379 42 310 36 249C30 190 28 126 63 80C98 35 161 22 210 18Z&quot;
-                );
-              "
-            >
-              <img
-                src="./images.png"
-                alt="Residential property survey"
-                class="block h-auto w-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div class="max-w-[860px]">
-          <p
-            class="text-[14px] font-extrabold tracking-[0.08em] text-secondary"
-          >
-            Why Choose Us?
-          </p>
-
-          <div class="mt-3">
-            <h2
-              class="text-[44px] font-extrabold leading-[1.06] text-primary sm:text-[56px] lg:text-[62px]"
-            >
-              Trusted Surveying <br />
-              Expertise
-            </h2>
-            <svg
-              class="mt-2 h-[18px] w-[150px]"
-              viewBox="0 0 150 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4 14C32 7 59 6 85 8C107 10 124 15 146 12"
-                stroke="#21a8f3"
-                stroke-width="4.5"
-                stroke-linecap="round"
-              />
-            </svg>
-          </div>
-
+        <div class="absolute inset-0 z-0">
+          <img
+            src="/hero.png"
+            alt="Modern Property Architecture"
+            class="h-full w-full object-cover opacity-20"
+          />
           <div
-            class="mt-6 max-w-[860px] space-y-2 text-[15px] leading-8 text-slate-600 lg:text-[16px]"
-          >
-            <p>
-              <span class="font-bold text-slate-700">RICS Certification:</span>
-              Our surveyors are fully accredited and follow the highest industry
-              standards.
-            </p>
-            <p>
-              <span class="font-bold text-slate-700">Local Expertise:</span>
-              Serving your area with detailed knowledge of the local property
-              market.
-            </p>
-            <p>
-              <span class="font-bold text-slate-700"
-                >Comprehensive Reports:</span
-              >
-              Clear, easy to understand reports with actionable insights.
-            </p>
-            <p>
-              <span class="font-bold text-slate-700">Trusted Advice:</span> We
-              guide you through every step, making complex property matters
-              simple.
-            </p>
-          </div>
-
-          <div class="mt-8 grid gap-x-6 gap-y-4 sm:grid-cols-2">
-            <div
-              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
-            >
-              <span
-                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
-                ><i class="fa-regular fa-circle-check text-[18px]"></i
-              ></span>
-              <span
-                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
-                >Level 3 Home Survey</span
-              >
-            </div>
-            <div
-              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
-            >
-              <span
-                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
-                ><i class="fa-regular fa-circle-check text-[18px]"></i
-              ></span>
-              <span
-                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
-                >Level 3 Home Survey</span
-              >
-            </div>
-            <div
-              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
-            >
-              <span
-                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
-                ><i class="fa-regular fa-circle-check text-[18px]"></i
-              ></span>
-              <span
-                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
-                >Defect Investigation</span
-              >
-            </div>
-            <div
-              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
-            >
-              <span
-                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
-                ><i class="fa-regular fa-circle-check text-[18px]"></i
-              ></span>
-              <span
-                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
-                >Market Valuation</span
-              >
-            </div>
-            <div
-              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
-            >
-              <span
-                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
-                ><i class="fa-regular fa-circle-check text-[18px]"></i
-              ></span>
-              <span
-                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
-                >Probate Valuation</span
-              >
-            </div>
-            <div
-              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
-            >
-              <span
-                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
-                ><i class="fa-regular fa-circle-check text-[18px]"></i
-              ></span>
-              <span
-                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
-                >Capital Gains Tax Valuation</span
-              >
-            </div>
-            <div
-              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
-            >
-              <span
-                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
-                ><i class="fa-regular fa-circle-check text-[18px]"></i
-              ></span>
-              <span
-                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
-                >Help To Buy Valuation</span
-              >
-            </div>
-            <div
-              class="flex min-h-[56px] items-center overflow-hidden bg-white shadow-[0_5px_14px_rgba(15,23,42,0.06)]"
-            >
-              <span
-                class="flex h-[56px] w-[56px] shrink-0 items-center justify-center bg-secondary text-white"
-                ><i class="fa-regular fa-circle-check text-[18px]"></i
-              ></span>
-              <span
-                class="px-5 text-[14px] font-extrabold tracking-[0.01em] text-primary"
-                >Shared Ownership Valuation</span
-              >
-            </div>
-          </div>
+            class="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/80 to-transparent"
+          ></div>
         </div>
-      </div>
-    </section>
 
-    <section
-      id="services"
-      class="section-pattern bg-primary py-20 text-white lg:py-28"
-    >
-      <div class="mx-auto max-w-7xl px-4 lg:px-6">
-        <div class="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+        <div class="absolute inset-0 dot-pattern opacity-20 z-0"></div>
+
+        <div
+          class="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8"
+        >
           <div>
-            <p
-              class="text-sm font-extrabold uppercase tracking-[0.22em] text-sky-300"
+            <span
+              class="inline-flex rounded-full border border-white/20 bg-white/10 px-5 py-2 text-[11px] font-extrabold uppercase tracking-[0.3em] text-brand-100 backdrop-blur-md"
             >
-              Our Services
+              Professional Property Surveys
+            </span>
+            <h1
+              class="mt-8 text-5xl font-black leading-[1.1] text-white sm:text-6xl lg:text-7xl"
+            >
+              RICS Regulated <br /><span class="text-brand-500">Experts</span>
+              You Can Trust
+            </h1>
+            <p class="mt-8 max-w-2xl text-lg leading-relaxed text-slate-300">
+              At IQSURV, we provide clear, reliable, and professional surveying
+              services tailored to homeowners, buyers, investors, and property
+              professionals. Whether you are purchasing a home, assessing
+              structural concerns, or require a valuation, our expert team
+              delivers detailed insights to help you make confident, informed
+              decisions.
             </p>
-            <div class="mt-3 inline-block">
-              <h2 class="text-4xl font-extrabold leading-tight sm:text-5xl">
-                Comprehensive Surveying <br />
-                Solutions Tailored To Your <br />
-                Needs
+
+            <div class="mt-10 flex flex-wrap gap-5">
+              <a
+                href="#contact"
+                class="inline-flex items-center justify-center rounded-full bg-brand-600 px-8 py-4 text-sm font-extrabold text-white shadow-2xl transition-all hover:bg-brand-500 hover:-translate-y-1"
+                >Book Your Survey</a
+              >
+              <a
+                href="#services"
+                class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-4 text-sm font-extrabold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+                >Explore Services</a
+              >
+            </div>
+
+            <div class="mt-12 grid grid-cols-3 gap-4">
+              <div
+                class="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-md"
+              >
+                <p class="text-2xl font-black text-white">RICS</p>
+                <p
+                  class="mt-1 text-[11px] font-bold uppercase tracking-wider text-slate-400"
+                >
+                  Regulated Firm
+                </p>
+              </div>
+              <div
+                class="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-md"
+              >
+                <p class="text-2xl font-black text-white">Fast</p>
+                <p
+                  class="mt-1 text-[11px] font-bold uppercase tracking-wider text-slate-400"
+                >
+                  Turnaround
+                </p>
+              </div>
+              <div
+                class="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-md"
+              >
+                <p class="text-2xl font-black text-white">Clear</p>
+                <p
+                  class="mt-1 text-[11px] font-bold uppercase tracking-wider text-slate-400"
+                >
+                  Actionable Advice
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:pl-10">
+            <div
+              class="rounded-[3rem] bg-white p-8 shadow-premium lg:p-12 relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 h-32 w-32 bg-brand-50 rounded-full -mr-16 -mt-16 opacity-50"
+              ></div>
+              <span
+                class="relative z-10 text-xs font-black uppercase tracking-[0.3em] text-brand-600"
+                >Trusted & Accredited</span
+              >
+              <h2
+                class="relative z-10 mt-4 text-3xl font-black text-brand-900 leading-tight"
+              >
+                Visible Accreditation On Every Page
               </h2>
-              <svg
-                class="mt-2 h-4 w-28"
-                viewBox="0 0 120 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4 13C24 7 46 6 67 8C84 9 98 14 116 11"
-                  stroke="#21a8f3"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                />
-              </svg>
+              <p class="relative z-10 mt-5 text-slate-600 leading-relaxed">
+                The IQSURV logo is supported by key accreditation marks that
+                help build immediate trust with visitors and clients.
+              </p>
+
+              <div class="mt-10 grid gap-4 sm:grid-cols-2">
+                <div
+                  class="group rounded-3xl border border-slate-100 bg-slate-50/50 p-6 text-center transition-all hover:bg-white hover:shadow-xl"
+                >
+                  <img
+                    src="/RICS.png"
+                    alt="RICS Logo"
+                    class="mx-auto h-14 object-contain grayscale group-hover:grayscale-0 transition-all"
+                  />
+                  <p class="mt-4 text-xs font-bold text-slate-600">
+                    Regulated by RICS
+                  </p>
+                </div>
+                <div
+                  class="group rounded-3xl border border-slate-100 bg-slate-50/50 p-6 text-center transition-all hover:bg-white hover:shadow-xl"
+                >
+                  <img
+                    src="/RPSA.png"
+                    alt="RPSA Logo"
+                    class="mx-auto h-14 object-contain grayscale group-hover:grayscale-0 transition-all"
+                  />
+                  <p
+                    class="mt-4 text-[10px] font-bold text-slate-600 leading-tight uppercase"
+                  >
+                    Residential Property Surveyors Association
+                  </p>
+                </div>
+                <div
+                  class="group rounded-3xl border border-slate-100 bg-slate-50/50 p-6 text-center sm:col-span-2 transition-all hover:bg-white hover:shadow-xl"
+                >
+                  <img
+                    src="/CIOB.png"
+                    alt="CIOB Logo"
+                    class="mx-auto h-14 object-contain grayscale group-hover:grayscale-0 transition-all"
+                  />
+                  <p class="mt-4 text-xs font-bold text-slate-600 uppercase">
+                    The Chartered Institute of Building
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <p class="max-w-2xl text-[15px] leading-7 text-slate-200">
-            We provide a full range of surveying services across the UK, from
-            detailed property surveys and valuations to expert advice for
-            buyers, homeowners, and businesses. Our goal is to deliver accurate
-            insights and clear reports, helping you make informed decisions with
-            confidence.
-          </p>
         </div>
+      </section>
 
-        <div class="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-5">
-          <div
-            class="service-card bg-white p-6 text-center text-slate-800 shadow-soft transition duration-300"
-          >
-            <h3 class="text-xl font-extrabold text-primary">
-              Shared Ownership Valuation
-            </h3>
-            <p class="mt-4 text-sm leading-7 text-slate-600">
-              Accurate valuations for shared ownership properties, helping you
-              make informed decisions.
-            </p>
-          </div>
-          <div
-            class="service-card bg-white p-6 text-center text-slate-800 shadow-soft transition duration-300"
-          >
-            <h3 class="text-xl font-extrabold text-primary">
-              Market Valuation
-            </h3>
-            <p class="mt-4 text-sm leading-7 text-slate-600">
-              Planning to buy, sell, or remortgage? Our market valuations
-              provide a professional estimate of your property's current market
-              value.
-            </p>
-          </div>
-          <div
-            class="service-card bg-white p-6 text-center text-slate-800 shadow-soft transition duration-300"
-          >
-            <h3 class="text-xl font-extrabold text-primary">
-              Probate Valuation
-            </h3>
-            <p class="mt-4 text-sm leading-7 text-slate-600">
-              When handling estate matters, probate valuations provide a
-              reliable and RICS compliant valuation to support legal
-              requirements.
-            </p>
-          </div>
-          <div
-            class="service-card bg-white p-6 text-center text-slate-800 shadow-soft transition duration-300"
-          >
-            <h3 class="text-xl font-extrabold text-primary">
-              Capital Gains Tax Valuation
-            </h3>
-            <p class="mt-4 text-sm leading-7 text-slate-600">
-              We offer certified valuations for capital gains tax purposes,
-              ensuring compliance and accurate reporting.
-            </p>
-          </div>
-          <div
-            class="service-card bg-white p-6 text-center text-slate-800 shadow-soft transition duration-300"
-          >
-            <h3 class="text-xl font-extrabold text-primary">
-              RICS Level 2 HomeBuyer Report
-            </h3>
-            <p class="mt-4 text-sm leading-7 text-slate-600">
-              Ideal for conventional properties in reasonable condition, our
-              HomeBuyer reports give a focused review of your property.
-            </p>
+      <section class="border-y border-slate-100 bg-white py-12">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid gap-6 md:grid-cols-4">
+            <div class="rounded-[2rem] bg-slate-50 p-7 border border-slate-100">
+              <p
+                class="text-[10px] font-black uppercase tracking-widest text-brand-600"
+              >
+                Accredited
+              </p>
+              <p class="mt-2 text-lg font-extrabold text-slate-900">
+                RICS Regulated Firm
+              </p>
+            </div>
+            <div class="rounded-[2rem] bg-slate-50 p-7 border border-slate-100">
+              <p
+                class="text-[10px] font-black uppercase tracking-widest text-brand-600"
+              >
+                Expert Guidance
+              </p>
+              <p class="mt-2 text-lg font-extrabold text-slate-900">
+                Clear reports with practical advice
+              </p>
+            </div>
+            <div class="rounded-[2rem] bg-slate-50 p-7 border border-slate-100">
+              <p
+                class="text-[10px] font-black uppercase tracking-widest text-brand-600"
+              >
+                Coverage
+              </p>
+              <p
+                class="mt-2 text-lg font-extrabold text-slate-900 leading-tight"
+              >
+                Support for buyers, owners, & investors
+              </p>
+            </div>
+            <div class="rounded-[2rem] bg-slate-50 p-7 border border-slate-100">
+              <p
+                class="text-[10px] font-black uppercase tracking-widest text-brand-600"
+              >
+                Professional
+              </p>
+              <p
+                class="mt-2 text-lg font-extrabold text-slate-900 leading-tight"
+              >
+                Valuations, Surveys & Structural
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact" class="bg-lightGray py-20 lg:py-28">
-      <div class="mx-auto max-w-3xl px-4 text-center lg:px-6">
-        <p
-          class="text-sm font-extrabold uppercase tracking-[0.22em] text-secondary"
+      <section id="why-us" class="bg-slate-50 py-24">
+        <div
+          class="mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8"
         >
-          Contact Us
-        </p>
-        <div class="mt-3">
-          <h2
-            class="text-4xl font-extrabold leading-[1.08] text-primary sm:text-5xl"
-          >
-            Get Your Survey <br />
-            Today
-          </h2>
-          <div class="flex justify-center">
-            <svg
-              class="mt-2 h-4 w-28"
-              viewBox="0 0 120 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          <div class="order-2 lg:order-1">
+            <span
+              class="text-xs font-black uppercase tracking-[0.3em] text-brand-600"
+              >Why Choose Us?</span
             >
-              <path
-                d="M4 13C24 7 46 6 67 8C84 9 98 14 116 11"
-                stroke="#21a8f3"
-                stroke-width="4"
-                stroke-linecap="round"
+            <h2
+              class="mt-5 text-4xl font-black leading-tight text-brand-900 sm:text-5xl"
+            >
+              Trusted Surveying Expertise
+            </h2>
+            <p class="mt-8 text-lg leading-relaxed text-slate-600">
+              As a RICS regulated firm, we are committed to the highest
+              standards of integrity, accuracy, and client care. We serve
+              clients with detailed local knowledge, clear communication, and
+              dependable professional advice.
+            </p>
+
+            <div class="mt-10 grid gap-6 sm:grid-cols-2">
+              <div class="rounded-3xl bg-white p-7 shadow-premium">
+                <h3 class="text-lg font-black text-slate-900">
+                  RICS Regulated Firm
+                </h3>
+                <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                  Our surveyors are fully accredited and follow the highest
+                  industry standards.
+                </p>
+              </div>
+              <div class="rounded-3xl bg-white p-7 shadow-premium">
+                <h3 class="text-lg font-black text-slate-900">
+                  Local Expertise
+                </h3>
+                <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                  Serving your area with detailed knowledge of the local
+                  property market.
+                </p>
+              </div>
+              <div class="rounded-3xl bg-white p-7 shadow-premium">
+                <h3 class="text-lg font-black text-slate-900">
+                  Comprehensive Reports
+                </h3>
+                <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                  Clear, easy-to-understand reports with actionable insights.
+                </p>
+              </div>
+              <div class="rounded-3xl bg-white p-7 shadow-premium">
+                <h3 class="text-lg font-black text-slate-900">
+                  Trusted Advice
+                </h3>
+                <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                  We guide you through every step, making complex property
+                  matters simple.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2">
+            <div class="relative overflow-hidden rounded-[3rem] shadow-premium">
+              <img
+                src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80"
+                alt="Residential property"
+                class="h-[600px] w-full object-cover transition-transform duration-700 hover:scale-105"
               />
-            </svg>
+              <div
+                class="absolute inset-x-8 bottom-8 rounded-[2.5rem] bg-white/95 p-8 shadow-2xl backdrop-blur-md"
+              >
+                <p
+                  class="text-xs font-black uppercase tracking-widest text-brand-600"
+                >
+                  Professional Standards
+                </p>
+                <p
+                  class="mt-3 text-2xl font-black text-brand-900 leading-tight"
+                >
+                  Reliable property insights for informed decisions
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-        <p class="mx-auto mt-8 max-w-2xl text-[15px] leading-7 text-slate-600">
-          Whether you need a HomeBuyer Report, Building Survey, or a
-          professional valuation, our team is ready to help. Book your survey
-          now and benefit from the expertise and assurance of RICS-certified
-          surveyors.
-        </p>
-      </div>
+      </section>
 
-      <div class="mx-auto mt-14 max-w-3xl px-4 lg:px-6">
-        <form
-          id="contactForm"
-          action="https://formsubmit.co/anwarulkarim13@gmail.com"
-          method="POST"
-          class="space-y-6"
-        >
-          <input type="hidden" name="_subject" value="New Survey Inquiry" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="" />
-          <input type="hidden" name="_subject" value="New Survey Inquiry" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <div>
-            <input
-              name="name"
-              type="text"
-              placeholder="Name"
-              required
-              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
-            />
-          </div>
-          <div>
-            <input
-              name="phone"
-              type="text"
-              placeholder="Number"
-              required
-              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
-            />
-          </div>
-          <div>
-            <input
-              name="email"
-              type="email"
-              placeholder="Your email"
-              required
-              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
-            />
-          </div>
-          <div>
-            <input
-              name="address"
-              type="text"
-              placeholder="Address"
-              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
-            />
-          </div>
-          <div>
-            <input
-              name="property_type"
-              type="text"
-              placeholder="Property Type"
-              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
-            />
-          </div>
-          <div>
-            <select
-              name="service"
-              class="w-full border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-600 outline-none focus:border-secondary focus:ring-0"
-            >
-              <option>RICS Level 2 HomeBuyer Report</option>
-              <option>RICS Level 3 Building Survey</option>
-              <option>Market Valuation</option>
-              <option>Probate Valuation</option>
-              <option>Shared Ownership Valuation</option>
-            </select>
-          </div>
-          <div>
-            <textarea
-              name="message"
-              rows="5"
-              placeholder="Message"
-              required
-              class="w-full resize-none border-0 border-b border-slate-300 bg-transparent px-0 py-4 text-slate-800 outline-none placeholder:text-slate-500 focus:border-secondary focus:ring-0"
-            ></textarea>
-          </div>
-          <div class="pt-2 text-left">
-            <button
-              type="submit"
-              class="inline-flex min-h-[50px] items-center justify-center bg-secondary px-8 text-sm font-extrabold text-white transition hover:bg-sky-500"
-            >
-              Send
-            </button>
-          </div>
-        </form>
-
-        <p
-          id="successMessage"
-          class="mt-4 hidden text-green-600 font-semibold text-sm"
-        >
-          ✅ Your message has been sent successfully!
-        </p>
-
-        <script>
-          const form = document.getElementById("contactForm");
-          const successMsg = document.getElementById("successMessage");
-
-          form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-              method: "POST",
-              body: formData,
-            })
-              .then(() => {
-                successMsg.classList.remove("hidden");
-                form.reset();
-              })
-              .catch(() => {
-                alert("Something went wrong. Please try again.");
-              });
-          });
-        </script>
-      </div>
-    </section>
-
-    <footer class="bg-dark pt-16 text-white">
-      <div
-        class="mx-auto grid max-w-7xl gap-10 px-4 pb-12 md:grid-cols-2 lg:grid-cols-4 lg:px-6"
+      <section
+        id="services"
+        class="bg-brand-900 py-24 text-white relative overflow-hidden"
       >
-        <div>
-          <h3 class="text-xl font-extrabold">About Us</h3>
-          <div class="mt-3 h-1 w-10 bg-secondary"></div>
-          <p class="mt-6 text-sm leading-7 text-slate-300">
-            When it comes to buying, selling, or valuing a property, accuracy,
-            reliability, and expertise are essential. Our team of RICS-certified
-            surveyors provides tailored surveying and valuation services.
-          </p>
-        </div>
+        <div class="absolute inset-0 dot-pattern opacity-10"></div>
+        <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl">
+            <span
+              class="text-xs font-black uppercase tracking-[0.3em] text-brand-500"
+              >Our Services</span
+            >
+            <h2 class="mt-5 text-4xl font-black leading-tight sm:text-5xl">
+              Comprehensive Surveying Solutions Tailored To Your Needs
+            </h2>
+            <p class="mt-6 text-lg text-slate-300 leading-relaxed">
+              We provide a full range of surveying and valuation services to
+              homeowners, buyers, landlords, investors, and property
+              professionals.
+            </p>
+          </div>
 
-        <div>
-          <h3 class="text-xl font-extrabold">Quick Links</h3>
-          <div class="mt-3 h-1 w-10 bg-secondary"></div>
-          <ul class="mt-6 space-y-4 text-sm text-slate-300">
-            <li>
-              <a href="#home" class="transition hover:text-secondary">Home</a>
-            </li>
-            <li>
-              <a href="#why-us" class="transition hover:text-secondary"
-                >Why Choose Us?</a
+          <div class="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+            <div
+              class="rounded-[2.5rem] bg-white p-8 text-slate-900 service-card"
+            >
+              <h3 class="text-2xl font-black text-brand-900">
+                Level 2 Home Survey
+              </h3>
+              <p class="mt-5 text-sm leading-relaxed text-slate-600">
+                Designed for conventional properties in reasonable condition,
+                with an easy-to-understand traffic light rating system.
+              </p>
+              <a
+                href="#level-2"
+                class="mt-6 inline-flex font-extrabold text-brand-600 hover:text-brand-700 transition"
+                >Read more →</a
               >
-            </li>
-            <li>
-              <a href="#services" class="transition hover:text-secondary"
-                >Our Services</a
+            </div>
+            <div
+              class="rounded-[2.5rem] bg-white p-8 text-slate-900 service-card"
+            >
+              <h3 class="text-2xl font-black text-brand-900">
+                Level 3 Home Survey
+              </h3>
+              <p class="mt-5 text-sm leading-relaxed text-slate-600">
+                A detailed inspection ideal for older, altered, or more complex
+                properties with greater depth and repair guidance.
+              </p>
+              <a
+                href="#level-3"
+                class="mt-6 inline-flex font-extrabold text-brand-600 hover:text-brand-700 transition"
+                >Read more →</a
               >
-            </li>
-            <li>
-              <a href="#contact" class="transition hover:text-secondary"
-                >Contact Us</a
+            </div>
+            <div
+              class="rounded-[2.5rem] bg-white p-8 text-slate-900 service-card"
+            >
+              <h3 class="text-2xl font-black text-brand-900">
+                Drone Roof Survey
+              </h3>
+              <p class="mt-5 text-sm leading-relaxed text-slate-600">
+                Safe, efficient aerial inspection for hard-to-reach roof areas
+                using high-resolution imagery and clear reporting.
+              </p>
+              <a
+                href="#drone"
+                class="mt-6 inline-flex font-extrabold text-brand-600 hover:text-brand-700 transition"
+                >Read more →</a
               >
-            </li>
-          </ul>
-        </div>
+            </div>
+            <div
+              class="rounded-[2.5rem] bg-white p-8 text-slate-900 service-card"
+            >
+              <h3 class="text-2xl font-black text-brand-900">
+                Valuation Surveys
+              </h3>
+              <p class="mt-5 text-sm leading-relaxed text-slate-600">
+                RICS Red Book compliant valuations for buying, selling, probate,
+                tax, Help to Buy, and shared ownership purposes.
+              </p>
+              <a
+                href="#valuations"
+                class="mt-6 inline-flex font-extrabold text-brand-600 hover:text-brand-700 transition"
+                >Read more →</a
+              >
+            </div>
 
-        <div>
-          <h3 class="text-xl font-extrabold">Official Info</h3>
-          <div class="mt-3 h-1 w-10 bg-secondary"></div>
-          <ul class="mt-6 space-y-4 text-sm text-slate-300">
-            <li>
-              <i class="fa-solid fa-location-dot mr-3 text-secondary"></i>China
-              House, 401 Edgware Road, London, NW2 6GY
-            </li>
-            <li>
-              <i class="fa-solid fa-phone mr-3 text-secondary"></i>020 3490 5520
-            </li>
-            <li>
-              <span class="font-bold text-white">Open Hours:</span><br />
-              Mon - Sat: 9:00 am - 5:00 pm<br />
-              Sunday: CLOSED
-            </li>
-          </ul>
+            <div
+              class="rounded-[3rem] bg-white p-10 text-slate-900 md:col-span-2 xl:col-span-4 border-l-8 border-brand-600"
+            >
+              <div
+                class="grid gap-10 lg:grid-cols-[1.5fr_0.5fr] lg:items-center"
+              >
+                <div>
+                  <h3 class="text-3xl font-black text-brand-900 leading-tight">
+                    Structural Design Calculations
+                  </h3>
+                  <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+                    We provide structural engineering calculations suitable for
+                    Building Control, including loft conversions, extensions,
+                    steel beam design, lintels, foundations, and load-bearing
+                    wall removal calculations.
+                  </p>
+                </div>
+                <div class="flex justify-start lg:justify-end">
+                  <a
+                    href="#structural"
+                    class="rounded-full bg-brand-900 px-10 py-5 text-sm font-black uppercase tracking-widest text-white shadow-xl transition hover:bg-brand-800"
+                    >View Details</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div>
-          <h3 class="text-xl font-extrabold">Newsletter</h3>
-          <div class="mt-3 h-1 w-10 bg-secondary"></div>
-          <p class="mt-6 text-sm leading-7 text-slate-300">
-            Subscribe to our newsletter to get the latest update and news.
-          </p>
-          <form
-            class="mt-5 flex overflow-hidden rounded-sm border border-slate-700 bg-[#0b1837]"
+      <section id="level-2" class="py-24 border-b border-slate-100">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl">
+            <span
+              class="text-xs font-black uppercase tracking-widest text-brand-600"
+              >RICS LEVEL 2 HOME SURVEY</span
+            >
+            <h2 class="mt-5 text-4xl font-black text-brand-900">
+              RICS Level 2 Home Survey
+            </h2>
+            <p class="mt-6 text-lg leading-relaxed text-slate-600">
+              The RICS Level 2 Home Survey is designed for conventional
+              properties in reasonable condition. It provides a clear overview
+              of the property's condition using an easy-to-understand traffic
+              light rating system.
+            </p>
+          </div>
+          <div class="mt-16 grid gap-8 lg:grid-cols-3">
+            <div
+              class="rounded-[2.5rem] border border-slate-100 p-10 shadow-premium lg:col-span-2"
+            >
+              <h3
+                class="text-2xl font-black text-slate-900 border-b border-slate-100 pb-6"
+              >
+                What the Survey Covers
+              </h3>
+              <div class="mt-8 grid gap-10 md:grid-cols-2">
+                <div>
+                  <h4
+                    class="text-lg font-black text-brand-900 flex items-center gap-2"
+                  >
+                    <span class="h-2 w-2 rounded-full bg-brand-500"></span>
+                    External Elements
+                  </h4>
+                  <ul class="mt-6 space-y-4 text-sm font-medium text-slate-600">
+                    <li>• Roof coverings (tiles, slates, chimneys)</li>
+                    <li>• Gutters, downpipes, and rainwater goods</li>
+                    <li>• External walls (brickwork, render, cladding)</li>
+                    <li>• Windows and doors</li>
+                    <li>• Fascia boards and soffits</li>
+                    <li>• External joinery and finishes</li>
+                    <li>• Boundaries (walls, fences, gates)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4
+                    class="text-lg font-black text-brand-900 flex items-center gap-2"
+                  >
+                    <span class="h-2 w-2 rounded-full bg-brand-500"></span>
+                    Internal & Services
+                  </h4>
+                  <ul class="mt-6 space-y-4 text-sm font-medium text-slate-600">
+                    <li>• Ceilings and internal walls</li>
+                    <li>• Floors and floor structure (visible areas)</li>
+                    <li>• Windows and internal joinery</li>
+                    <li>• Fireplaces and chimney breasts</li>
+                    <li>• Signs of damp, cracking, or movement</li>
+                    <li>• Electrical installations (visual only)</li>
+                    <li>
+                      • Gas supply, heating systems, and drainage where visible
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-[2.5rem] bg-brand-900 p-10 text-white shadow-2xl shadow-brand-900/20"
+            >
+              <h3 class="text-2xl font-black border-b border-white/10 pb-6">
+                What You Receive
+              </h3>
+              <ul class="mt-6 space-y-4 text-sm font-medium text-brand-100">
+                <li>• Condition ratings (1–3 traffic light system)</li>
+                <li>• Identification of urgent defects</li>
+                <li>• Risks that may affect value</li>
+                <li>• Advice on repairs and maintenance</li>
+                <li>• Optional market valuation and rebuild cost</li>
+              </ul>
+              <h3
+                class="mt-12 text-2xl font-black border-b border-white/10 pb-6"
+              >
+                Who It’s For
+              </h3>
+              <ul class="mt-6 space-y-4 text-sm font-medium text-brand-100">
+                <li>• Buyers of modern or standard construction homes</li>
+                <li>• Properties in generally good condition</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="level-3" class="bg-slate-50 py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl">
+            <span
+              class="text-xs font-black uppercase tracking-widest text-brand-600"
+              >RICS LEVEL 3 HOME SURVEY</span
+            >
+            <h2 class="mt-5 text-4xl font-black text-brand-900">
+              RICS Level 3 Home Survey
+            </h2>
+            <p class="mt-6 text-lg leading-relaxed text-slate-600">
+              The RICS Level 3 Home Survey is a detailed and comprehensive
+              inspection suitable for older, altered, or complex properties.
+            </p>
+          </div>
+          <div class="mt-16 grid gap-8 lg:grid-cols-3">
+            <div
+              class="rounded-[2.5rem] bg-white p-10 shadow-premium lg:col-span-2"
+            >
+              <h3
+                class="text-2xl font-black text-slate-900 border-b border-slate-100 pb-6"
+              >
+                What the Survey Covers
+              </h3>
+              <div class="mt-8 grid gap-10 md:grid-cols-2">
+                <div>
+                  <h4
+                    class="text-lg font-black text-brand-900 flex items-center gap-2"
+                  >
+                    <span class="h-2 w-2 rounded-full bg-brand-500"></span>
+                    External Elements
+                  </h4>
+                  <ul class="mt-6 space-y-4 text-sm font-medium text-slate-600">
+                    <li>
+                      • Roof structure and coverings (including loft inspection)
+                    </li>
+                    <li>• Chimneys and parapets</li>
+                    <li>• Walls (structure, movement, cracking)</li>
+                    <li>• Rainwater systems and drainage</li>
+                    <li>• External joinery, windows, and doors</li>
+                    <li>• Boundaries and outbuildings</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4
+                    class="text-lg font-black text-brand-900 flex items-center gap-2"
+                  >
+                    <span class="h-2 w-2 rounded-full bg-brand-500"></span>
+                    Internal & Services
+                  </h4>
+                  <ul class="mt-6 space-y-4 text-sm font-medium text-slate-600">
+                    <li>• Floors and subfloor (where accessible)</li>
+                    <li>• Walls, ceilings, and structural elements</li>
+                    <li>• Staircases and load-bearing elements</li>
+                    <li>• Detailed inspection of defects</li>
+                    <li>• Heating, Electrical & Plumbing systems overview</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-[2.5rem] border border-slate-200 bg-white p-10">
+              <h3
+                class="text-2xl font-black text-slate-900 border-b border-slate-100 pb-6"
+              >
+                What You Receive
+              </h3>
+              <ul class="mt-6 space-y-4 text-sm font-medium text-slate-600">
+                <li>• Detailed description of construction and condition</li>
+                <li>• Diagnosis of defects and causes</li>
+                <li>• Repair options and recommendations</li>
+                <li>• Maintenance advice and future risks</li>
+                <li>• Optional valuation</li>
+              </ul>
+              <h3
+                class="mt-12 text-2xl font-black border-b border-slate-100 pb-6"
+              >
+                Who It’s For
+              </h3>
+              <ul class="mt-6 space-y-4 text-sm font-medium text-slate-600">
+                <li>• Older or period properties</li>
+                <li>• Buildings with extensions or loft conversions</li>
+                <li>• Properties in poor condition</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="drone" class="py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <span
+                class="text-xs font-black uppercase tracking-widest text-brand-600"
+                >Drone Roof Survey</span
+              >
+              <h2 class="mt-5 text-4xl font-black text-brand-900 leading-tight">
+                Safe, Efficient Roof Inspections Without Scaffolding
+              </h2>
+              <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+                At IQSURV, we offer advanced drone roof surveys to safely
+                inspect hard-to-reach areas without the need for scaffolding or
+                ladders. Using high-resolution aerial imaging, we provide a
+                detailed assessment of your roof condition quickly, efficiently,
+                and cost-effectively.
+              </p>
+
+              <div
+                class="mt-10 rounded-[2.5rem] bg-brand-900 p-10 text-white relative overflow-hidden shadow-2xl"
+              >
+                <div
+                  class="absolute top-0 right-0 h-24 w-24 bg-white/5 rounded-full -mr-12 -mt-12"
+                ></div>
+                <h3 class="text-2xl font-black mb-6">
+                  Benefits of a Drone Survey
+                </h3>
+                <ul class="space-y-4 text-sm font-medium text-brand-100">
+                  <li>
+                    • No need for scaffolding or expensive access equipment
+                  </li>
+                  <li>• Safe inspection of difficult or hazardous areas</li>
+                  <li>• Fast turnaround time</li>
+                  <li>
+                    • Cost-effective compared to traditional access methods
+                  </li>
+                  <li>• Minimal disruption to occupants</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="grid gap-8">
+              <div
+                class="rounded-[2.5rem] border border-slate-100 p-10 shadow-premium bg-white"
+              >
+                <h3
+                  class="text-2xl font-black text-slate-900 mb-8 border-b border-slate-50 pb-6"
+                >
+                  What We Inspect
+                </h3>
+                <div class="grid gap-8 md:grid-cols-2">
+                  <div>
+                    <h4
+                      class="font-black text-brand-600 uppercase text-xs tracking-widest mb-4"
+                    >
+                      Roof Coverings
+                    </h4>
+                    <ul class="space-y-3 text-sm text-slate-600 font-medium">
+                      <li>• Missing/damaged tiles/slates</li>
+                      <li>• General wear & deterioration</li>
+                      <li>• Flat roof coverings & membranes</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4
+                      class="font-black text-brand-600 uppercase text-xs tracking-widest mb-4"
+                    >
+                      Roof Structure
+                    </h4>
+                    <ul class="space-y-3 text-sm text-slate-600 font-medium">
+                      <li>• Ridge tiles and hips</li>
+                      <li>• Chimneys, flashings, & parapets</li>
+                      <li>• Roof junctions and detailing</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4
+                      class="font-black text-brand-600 uppercase text-xs tracking-widest mb-4"
+                    >
+                      Rainwater Goods
+                    </h4>
+                    <ul class="space-y-3 text-sm text-slate-600 font-medium">
+                      <li>• Gutters and downpipes</li>
+                      <li>• Blockages, leaks, or misalignment</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4
+                      class="font-black text-brand-600 uppercase text-xs tracking-widest mb-4"
+                    >
+                      Other Features
+                    </h4>
+                    <ul class="space-y-3 text-sm text-slate-600 font-medium">
+                      <li>• Fascias and soffits</li>
+                      <li>• Solar panels (if present)</li>
+                      <li>• High-level masonry & cladding</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="grid gap-8 md:grid-cols-2">
+                <div
+                  class="rounded-[2.5rem] bg-slate-50 p-8 border border-slate-100"
+                >
+                  <h3 class="text-xl font-black text-slate-900 mb-5">
+                    What You Receive
+                  </h3>
+                  <ul
+                    class="space-y-3 text-sm text-slate-600 font-medium leading-relaxed"
+                  >
+                    <li>• High-res images & aerial footage</li>
+                    <li>• Clear condition assessment</li>
+                    <li>• Identification of defects & risks</li>
+                    <li>• Professional repair recommendations</li>
+                  </ul>
+                </div>
+                <div
+                  class="rounded-[2.5rem] bg-slate-50 p-8 border border-slate-100"
+                >
+                  <h3 class="text-xl font-black text-slate-900 mb-5">
+                    When Do You Need It?
+                  </h3>
+                  <ul
+                    class="space-y-3 text-sm text-slate-600 font-medium leading-relaxed"
+                  >
+                    <li>• After extreme weather/storms</li>
+                    <li>• Before buying or selling</li>
+                    <li>• As part of planned maintenance</li>
+                    <li>• When access is restricted</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="valuations" class="bg-slate-50 py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-4xl">
+            <span
+              class="text-xs font-black uppercase tracking-widest text-brand-600"
+              >VALUATION SURVEYS</span
+            >
+            <h2 class="mt-5 text-4xl font-black text-brand-900">
+              Valuation Surveys (RICS Red Book Compliant)
+            </h2>
+            <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+              All of our valuation reports are prepared in accordance with RICS
+              Red Book standards, ensuring they are compliant, reliable, and
+              accepted by lenders, HMRC, courts, and other authorities.
+            </p>
+          </div>
+          <div class="mt-16 grid gap-8 lg:grid-cols-3">
+            <div class="rounded-[2.5rem] bg-white p-10 shadow-premium">
+              <h3
+                class="text-2xl font-black text-slate-900 mb-6 border-b border-slate-50 pb-6"
+              >
+                Who Needs Reports?
+              </h3>
+              <ul class="space-y-4 text-sm font-medium text-slate-600">
+                <li>• Homeowners buying/selling</li>
+                <li>• Landlords and investors</li>
+                <li>• Solicitors & Legal professionals</li>
+                <li>• Tax advisors and accountants</li>
+                <li>• Housing associations</li>
+                <li>• Probate or divorce matters</li>
+              </ul>
+            </div>
+            <div
+              class="rounded-[2.5rem] bg-white p-10 shadow-premium lg:col-span-2"
+            >
+              <h3
+                class="text-2xl font-black text-slate-900 mb-8 border-b border-slate-50 pb-6"
+              >
+                Our Valuation Services Include
+              </h3>
+              <div class="grid gap-6 md:grid-cols-2">
+                <div
+                  class="p-6 rounded-3xl bg-slate-50 border border-slate-100"
+                >
+                  <h4 class="font-black text-brand-900">Market Valuation</h4>
+                  <p class="mt-2 text-xs text-slate-500 leading-relaxed">
+                    Assessment of current market value for buying, selling, or
+                    refinancing.
+                  </p>
+                </div>
+                <div
+                  class="p-6 rounded-3xl bg-slate-50 border border-slate-100"
+                >
+                  <h4 class="font-black text-brand-900">Probate Valuation</h4>
+                  <p class="mt-2 text-xs text-slate-500 leading-relaxed">
+                    Required for inheritance tax purposes when administering an
+                    estate.
+                  </p>
+                </div>
+                <div
+                  class="p-6 rounded-3xl bg-slate-50 border border-slate-100"
+                >
+                  <h4 class="font-black text-brand-900">Capital Gains Tax</h4>
+                  <p class="mt-2 text-xs text-slate-500 leading-relaxed">
+                    Used to calculate tax liabilities when disposing of assets.
+                  </p>
+                </div>
+                <div
+                  class="p-6 rounded-3xl bg-slate-50 border border-slate-100"
+                >
+                  <h4 class="font-black text-brand-900">
+                    Help to Buy Valuation
+                  </h4>
+                  <p class="mt-2 text-xs text-slate-500 leading-relaxed">
+                    Required when repaying an equity loan or selling the
+                    property.
+                  </p>
+                </div>
+                <div
+                  class="p-6 rounded-3xl bg-slate-50 border border-slate-100 md:col-span-2"
+                >
+                  <h4 class="font-black text-brand-900 text-lg leading-tight">
+                    Shared Ownership Valuation
+                  </h4>
+                  <p class="mt-2 text-xs text-slate-500 leading-relaxed">
+                    Needed for staircasing or selling shared ownership
+                    properties and must meet strict housing association
+                    requirements.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10 rounded-[2.5rem] bg-brand-900 p-10 text-white">
+            <h3 class="text-2xl font-black mb-8">What You Receive</h3>
+            <div class="grid gap-6 md:grid-cols-4">
+              <div
+                class="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm font-bold text-center"
+              >
+                RICS Red Book compliant report
+              </div>
+              <div
+                class="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm font-bold text-center"
+              >
+                Market evidence & analysis
+              </div>
+              <div
+                class="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm font-bold text-center"
+              >
+                Clear valuation rationale
+              </div>
+              <div
+                class="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm font-bold text-center"
+              >
+                Suitable for official & legal use
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="structural" class="py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid gap-16 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+            <div>
+              <span
+                class="text-xs font-black uppercase tracking-widest text-brand-600"
+                >STRUCTURAL DESIGN CALCULATIONS</span
+              >
+              <h2 class="mt-5 text-4xl font-black text-brand-900">
+                Structural Design Calculations
+              </h2>
+              <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+                We provide structural engineering calculations to support safe
+                and compliant construction works.
+              </p>
+
+              <div class="mt-12 grid gap-4 sm:grid-cols-2">
+                <div
+                  class="group rounded-3xl border border-slate-100 p-8 shadow-premium transition hover:border-brand-500"
+                >
+                  <h3 class="font-black text-slate-900 text-lg leading-tight">
+                    Loft conversion structural calculations
+                  </h3>
+                </div>
+                <div
+                  class="group rounded-3xl border border-slate-100 p-8 shadow-premium transition hover:border-brand-500"
+                >
+                  <h3 class="font-black text-slate-900 text-lg leading-tight">
+                    Extension design
+                  </h3>
+                  <p class="mt-2 text-sm text-slate-500">
+                    Foundations, beams, and load paths
+                  </p>
+                </div>
+                <div
+                  class="group rounded-3xl border border-slate-100 p-8 shadow-premium transition hover:border-brand-500"
+                >
+                  <h3
+                    class="font-black text-slate-900 text-lg leading-tight text-brand-600"
+                  >
+                    Steel beam (RSJ) design
+                  </h3>
+                </div>
+                <div
+                  class="group rounded-3xl border border-slate-100 p-8 shadow-premium transition hover:border-brand-500"
+                >
+                  <h3
+                    class="font-black text-slate-900 text-lg leading-tight text-brand-600"
+                  >
+                    Lintel design
+                  </h3>
+                </div>
+                <div
+                  class="group rounded-3xl border border-slate-100 p-8 shadow-premium transition hover:border-brand-500"
+                >
+                  <h3 class="font-black text-slate-900 text-lg leading-tight">
+                    Foundation design
+                  </h3>
+                </div>
+                <div
+                  class="group rounded-3xl border border-slate-100 p-8 shadow-premium transition hover:border-brand-500"
+                >
+                  <h3 class="font-black text-slate-900 text-lg leading-tight">
+                    Load-bearing wall removal
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="rounded-[3rem] bg-slate-50 p-10 border border-slate-100"
+            >
+              <h3
+                class="text-2xl font-black text-slate-900 mb-8 border-b border-slate-200 pb-6"
+              >
+                Details & Specifications
+              </h3>
+              <div class="mb-10">
+                <h4
+                  class="font-black text-brand-600 uppercase text-xs tracking-widest mb-4"
+                >
+                  What You Receive
+                </h4>
+                <ul class="space-y-4 text-sm text-slate-600 font-medium">
+                  <li>• Calculations suitable for Building Control</li>
+                  <li>• Design notes and specifications</li>
+                  <li>• Structural drawings (if required)</li>
+                  <li>• Compliance with UK Building Regulations</li>
+                </ul>
+              </div>
+              <div class="mb-10">
+                <h4
+                  class="font-black text-brand-600 uppercase text-xs tracking-widest mb-4"
+                >
+                  Who It’s For
+                </h4>
+                <ul class="space-y-4 text-sm text-slate-600 font-medium">
+                  <li>• Homeowners undertaking alterations</li>
+                  <li>• Builders and contractors</li>
+                  <li>• Architects and designers</li>
+                </ul>
+              </div>
+              <div
+                class="mt-12 rounded-3xl bg-brand-900 p-8 text-white text-center shadow-2xl"
+              >
+                <p
+                  class="text-[10px] font-black uppercase tracking-[0.3em] text-brand-400"
+                >
+                  Need support?
+                </p>
+                <p class="mt-3 text-2xl font-black">
+                  Request Calculations Today
+                </p>
+                <a
+                  href="#contact"
+                  class="mt-8 inline-block rounded-full bg-white px-8 py-4 text-xs font-black uppercase tracking-widest text-brand-900 hover:bg-slate-100 transition"
+                  >Contact IQSURV</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-brand-900 py-24 text-white relative">
+        <div class="absolute inset-0 dot-pattern opacity-10"></div>
+        <div
+          class="relative z-10 mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8"
+        >
+          <div>
+            <span
+              class="text-xs font-black uppercase tracking-[0.3em] text-brand-500"
+              >Contact Us</span
+            >
+            <h2 class="mt-5 text-4xl font-black leading-tight sm:text-5xl">
+              Get Your Survey Today
+            </h2>
+            <p class="mt-8 text-lg text-slate-300 leading-relaxed">
+              Whether you need a homebuyer report, building survey, drone roof
+              inspection, valuation, or structural calculations, our team is
+              ready to help.
+            </p>
+
+            <div class="mt-12 space-y-6">
+              <div
+                class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md"
+              >
+                <p
+                  class="text-xs font-black uppercase tracking-[0.2em] text-brand-500"
+                >
+                  Office Location
+                </p>
+                <p
+                  class="mt-3 text-lg font-bold text-slate-100 leading-relaxed"
+                >
+                  China House 401 Edgware Road, London, NW2 6GY
+                </p>
+              </div>
+              <div
+                class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md"
+              >
+                <p
+                  class="text-xs font-black uppercase tracking-[0.2em] text-brand-500"
+                >
+                  Direct Phone
+                </p>
+                <p class="mt-3 text-2xl font-black text-white">020 3488 5620</p>
+              </div>
+              <div
+                class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md"
+              >
+                <p
+                  class="text-xs font-black uppercase tracking-[0.2em] text-brand-500"
+                >
+                  Open Hours
+                </p>
+                <p class="mt-3 font-bold text-slate-100">
+                  Mon – Sat: 9:00 am – 5:00 pm
+                </p>
+                <p class="text-slate-400">Sunday: Closed</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="rounded-[3rem] bg-white p-8 text-slate-900 shadow-premium lg:p-12"
           >
-            <input
-              type="email"
-              placeholder="Email"
-              class="w-full bg-transparent px-4 py-3 text-sm text-white outline-none placeholder:text-slate-400"
-            />
-            <button
-              type="submit"
-              class="bg-secondary px-5 text-white transition hover:bg-sky-500"
-            >
-              <i class="fa-solid fa-paper-plane"></i>
-            </button>
-          </form>
+            <div class="mb-10 flex flex-wrap gap-3">
+              <span
+                class="rounded-full bg-slate-100 px-5 py-2 text-[10px] font-black uppercase tracking-widest text-slate-600"
+                >RICS</span
+              >
+              <span
+                class="rounded-full bg-slate-100 px-5 py-2 text-[10px] font-black uppercase tracking-widest text-slate-600"
+                >RPSA</span
+              >
+              <span
+                class="rounded-full bg-slate-100 px-5 py-2 text-[10px] font-black uppercase tracking-widest text-slate-600"
+                >CIOB</span
+              >
+            </div>
+
+            <form class="grid gap-6">
+              <div class="grid gap-6 md:grid-cols-2">
+                <div>
+                  <label
+                    class="mb-2 block text-xs font-black uppercase tracking-widest text-slate-500"
+                    >Your Name</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Your full name"
+                    class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-6 py-4 outline-none transition focus:border-brand-600 focus:bg-white"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="mb-2 block text-xs font-black uppercase tracking-widest text-slate-500"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Phone number"
+                    class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-6 py-4 outline-none transition focus:border-brand-600 focus:bg-white"
+                  />
+                </div>
+              </div>
+              <div class="grid gap-6 md:grid-cols-2">
+                <div>
+                  <label
+                    class="mb-2 block text-xs font-black uppercase tracking-widest text-slate-500"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    placeholder="Your email"
+                    class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-6 py-4 outline-none transition focus:border-brand-600 focus:bg-white"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="mb-2 block text-xs font-black uppercase tracking-widest text-slate-500"
+                    >Property Address</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Property address"
+                    class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-6 py-4 outline-none transition focus:border-brand-600 focus:bg-white"
+                  />
+                </div>
+              </div>
+              <div class="grid gap-6 md:grid-cols-2">
+                <div>
+                  <label
+                    class="mb-2 block text-xs font-black uppercase tracking-widest text-slate-500"
+                    >Property Type</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Property type"
+                    class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-6 py-4 outline-none transition focus:border-brand-600 focus:bg-white"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="mb-2 block text-xs font-black uppercase tracking-widest text-slate-500"
+                    >Select Service</label
+                  >
+                  <select
+                    class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-6 py-4 outline-none appearance-none cursor-pointer focus:border-brand-600"
+                  >
+                    <option>Level 2 Home Survey</option>
+                    <option>Level 3 Home Survey</option>
+                    <option>Drone Roof Survey</option>
+                    <option>Market Valuation</option>
+                    <option>Probate Valuation</option>
+                    <option>Capital Gains Tax Valuation</option>
+                    <option>Help to Buy Valuation</option>
+                    <option>Shared Ownership Valuation</option>
+                    <option>Structural Design Calculations</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label
+                  class="mb-2 block text-xs font-black uppercase tracking-widest text-slate-500"
+                  >Your Message</label
+                >
+                <textarea
+                  rows="4"
+                  placeholder="Tell us how we can help"
+                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-6 py-4 outline-none transition focus:border-brand-600 focus:bg-white"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full rounded-full bg-brand-600 py-5 text-sm font-black uppercase tracking-widest text-white shadow-2xl transition hover:bg-brand-700 hover:-translate-y-1"
+              >
+                Send Enquiry Today
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-brand-900 py-16 text-white border-t border-white/5">
+      <div
+        class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8"
+      >
+        <div>
+          <h3 class="text-2xl font-black">IQSURV</h3>
+          <p class="mt-6 text-sm leading-relaxed text-slate-400">
+            Professional property surveys, valuation services, drone roof
+            inspections, and structural calculations delivered with clarity,
+            reliability, and trusted industry standards.
+          </p>
+        </div>
+        <div>
+          <h4
+            class="text-sm font-black uppercase tracking-widest text-brand-500"
+          >
+            Quick Links
+          </h4>
+          <ul class="mt-6 space-y-4 text-sm font-bold text-slate-300">
+            <li>
+              <a href="#home" class="hover:text-white transition">Home</a>
+            </li>
+            <li>
+              <a href="#services" class="hover:text-white transition"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a href="#valuations" class="hover:text-white transition"
+                >Valuations</a
+              >
+            </li>
+            <li>
+              <a href="#structural" class="hover:text-white transition"
+                >Structural Design</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="text-sm font-black uppercase tracking-widest text-brand-500"
+          >
+            Accreditations
+          </h4>
+          <div class="mt-6 space-y-4 text-sm font-bold text-slate-300">
+            <p>RICS Regulated Firm</p>
+            <p>RPSA Member Standards</p>
+            <p>CIOB Professional Recognition</p>
+          </div>
+        </div>
+        <div>
+          <h4
+            class="text-sm font-black uppercase tracking-widest text-brand-500"
+          >
+            Contact
+          </h4>
+          <div
+            class="mt-6 space-y-4 text-sm font-bold text-slate-300 leading-relaxed"
+          >
+            <p>China House 401 Edgware Road, London, NW2 6GY</p>
+            <p>020 3488 5620</p>
+            <p>Mon – Sat: 9:00 am – 5:00 pm</p>
+          </div>
         </div>
       </div>
-
       <div
-        class="border-t border-slate-800 py-5 text-center text-sm text-slate-400"
+        class="mx-auto mt-16 max-w-7xl border-t border-white/5 px-4 pt-8 text-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 sm:px-6 lg:px-8"
       >
-        Copyright © 2025 Surveyor Near Me
+        © 2026 IQSURV. All rights reserved.
       </div>
     </footer>
   </body>
